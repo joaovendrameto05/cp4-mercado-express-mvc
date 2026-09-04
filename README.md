@@ -61,6 +61,7 @@ Oracle Database  (FIAP — acesso via VPN)
 
 ### Camadas MVC
 
+
 | Camada | Componente | Responsabilidade |
 |:---|:---|:---|
 | **Model** | `Produto.java` | Entidade JPA mapeada para `TDS_MVC_TB_MERCADO`. Lombok gera getters, setters e construtores automaticamente |
@@ -70,6 +71,7 @@ Oracle Database  (FIAP — acesso via VPN)
 ---
 
 ## Tecnologias Utilizadas
+
 
 | Tecnologia | Versão / Descrição |
 |:---|:---|
