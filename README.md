@@ -101,7 +101,7 @@ Oracle Database  (FIAP — acesso via VPN)
 ---
 ### Spring Initializr ###
 
-<img width="1223" height="918" alt="springini" src="https://github.com/user-attachments/assets/0b1c1551-2158-43a5-a2d2-cf626c19e7f4">
+<img width="1532" height="791" alt="spring_inic" src="https://github.com/user-attachments/assets/fd2bb8eb-7839-4261-ba48-968b24ef73bd" >
 
 ### Passo 1 — Importar o Projeto
 
