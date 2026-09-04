@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mercado Express - Produtos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/produtos"><i class="bi bi-cart-check"></i> Mercado Express</a>
+        <div class="d-flex text-white align-items-center">
+
+            <span sec:authorize="!isAuthenticated()">
+                    <a href="/login" class="btn btn-outline-light btn-sm"><i class="bi bi-box-arrow-in-right"></i> Acesso Restrito</a>
+                </span>
+
+            <span sec:authorize="isAuthenticated()">
+                    <i class="bi bi-person-circle"></i> Bem-vindo, <span sec:authentication="name" class="fw-bold"></span>!
+                    <form th:action="@{/logout}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-outline-light btn-sm ms-3"><i class="bi bi-box-arrow-right"></i> Sair</button>
+                    </form>
+                </span>
+        </div>
+    </div>
+</nav>
+
+<div class="container bg-white p-4 rounded shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="h3 mb-0 text-secondary"><i class="bi bi-box-seam"></i> Catálogo de Produtos</h2>
+
+        <a sec:authorize="isAuthenticated()" th:href="@{/produtos/novo}" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Novo Produto
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle border">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Setor</th>
+                <th>Tamanho</th>
+                <th>Preço (R$)</th>
+                <th sec:authorize="isAuthenticated()" class="text-center">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="produto : ${produtos}">
+                <td th:text="${produto.id}"></td>
+                <td th:text="${produto.nome}" class="fw-bold text-primary"></td>
+                <td th:text="${produto.tipo}"></td>
+                <td th:text="${produto.setor}"></td>
+                <td th:text="${produto.tamanho}"></td>
+                <td th:text="${#numbers.formatDecimal(produto.preco, 1, 'POINT', 2, 'COMMA')}"></td>
+
+                <td sec:authorize="isAuthenticated()" class="text-center">
+                    <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" class="btn btn-sm btn-primary" title="Editar">
+                        <i class="bi bi-pencil-square"></i> Editar
+                    </a>
+                    <a th:href="@{/produtos/deletar/{id}(id=${produto.id})}" class="btn btn-sm btn-danger ms-1" onclick="return confirm('ATENÇÃO: Tem certeza que deseja excluir este produto do banco de dados?');" title="Deletar">
+                        <i class="bi bi-trash"></i> Excluir
+                    </a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(produtos)}">
+                <td colspan="7" class="text-center text-muted py-4">
+                    <i class="bi bi-inbox fs-2 d-block mb-2"></i> Nenhum produto cadastrado no momento.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
