@@ -96,6 +96,9 @@ Oracle Database  (FIAP — acesso via VPN)
 > Sem a VPN ativa, a aplicação lançará `Connection Timeout` ao tentar conectar ao banco de dados da instituição.
  
 ---
+### Spring Initializr ###
+
+<img width="1223" height="918" alt="springini" src="https://github.com/user-attachments/assets/0b1c1551-2158-43a5-a2d2-cf626c19e7f4">
 
 ### Passo 1 — Importar o Projeto
 
@@ -118,6 +121,9 @@ spring.jpa.hibernate.ddl-auto=none
 spring.jpa.show-sql=true
 ```
 
+<img width="1917" height="1030" alt="application properties" src="https://github.com/user-attachments/assets/ae5225fb-903e-4a41-be66-45bfe1dce3a3">
+
+
 > **Nunca suba o arquivo `application.properties` com credenciais reais para o repositório.** Adicione-o ao `.gitignore` ou utilize variáveis de ambiente.
  
 ---
@@ -130,6 +136,9 @@ Execute a classe `Application.java` pelo IntelliJ (botão Run) ou via terminal:
 ./mvnw spring-boot:run
 ```
 
+<img width="1915" height="1032" alt="Application java" src="https://github.com/user-attachments/assets/de55e290-adb6-45cb-b8c8-ec4240a596a5">
+
+
 O servidor Tomcat embutido será iniciado na porta `8082`.
  
 ---
@@ -139,7 +148,9 @@ O servidor Tomcat embutido será iniciado na porta `8082`.
 ```
 http://localhost:8082/produtos
 ```
- 
+ <img width="1912" height="995" alt="localhost_2" src="https://github.com/user-attachments/assets/0f0b6280-998b-4dba-8c8e-5d1bdd10cc47" >
+<img width="1917" height="991" alt="locashotst_1" src="https://github.com/user-attachments/assets/2fa27e7d-9fd0-42be-837c-334624008d49" >
+
 ---
 
 ## Credenciais de Acesso
@@ -182,7 +193,7 @@ public String listar(Model model) {
 }
 ```
 
-![Listagem de Produtos](inserir_link_da_imagem_da_tela_de_lista_aqui)
+<img width="1915" height="992" alt="read" src="https://github.com/user-attachments/assets/16883253-efdb-493e-bbaf-ac074c4fef04" >
  
 ---
 
@@ -200,8 +211,7 @@ public String salvar(@ModelAttribute Produto produto) {
     return "redirect:/produtos";
 }
 ```
-
-![Formulário de Criação](inserir_link_da_imagem_do_formulario_aqui)
+<img width="1912" height="992" alt="create" src="https://github.com/user-attachments/assets/655e86e8-ff3c-4d69-9ee1-5ca5a31038c1" >
  
 ---
 
@@ -218,7 +228,7 @@ public String editar(@PathVariable Long id, Model model) {
 }
 ```
 
-![Edição de Produto](inserir_link_da_imagem_de_edicao_aqui)
+<img width="1915" height="992" alt="read" src="https://github.com/user-attachments/assets/7061b267-8820-457b-875b-835da16329ee" >
  
 ---
 
@@ -234,8 +244,7 @@ public String deletar(@PathVariable Long id) {
     return "redirect:/produtos";
 }
 ```
-
-![Confirmação de Exclusão](inserir_link_da_imagem_de_exclusao_aqui)
+<img width="1915" height="992" alt="delete" src="https://github.com/user-attachments/assets/c5b6797a-cdbf-4110-9ae9-3fcb38f665f8" >
  
 ---
 
@@ -246,4 +255,15 @@ public String deletar(@PathVariable Long id) {
 | **URL de Produção** | [Inserir link do deploy aqui] |
 | **Plataforma** | [Inserir plataforma — ex: Render, Fly.io, Railway] |
 
+<img width="1912" height="1032" alt="deploy" src="https://github.com/user-attachments/assets/62df933b-69d8-45c9-bd57-a20d40530cf2" >
+
 > Ao realizar o deploy, certifique-se de configurar as variáveis de ambiente do banco de dados na plataforma escolhida, sem expor credenciais no repositório.
+
+
+### CRUD Completo ###
+
+<img width="1912" height="1032" alt="crud_complete" src="https://github.com/user-attachments/assets/884c5c80-60e8-484d-a9dc-d557d88ba41e" >
+
+---
+
+Obrigado!
