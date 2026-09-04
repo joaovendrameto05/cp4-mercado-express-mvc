@@ -19,19 +19,29 @@ public class ProdutoController {
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("produtos", repository.findAll());
-        return "produtos/lista"; // Retorna o HTML de listagem
+        return "produtos/lista"; 
     }
 
     @GetMapping("/novo")
     public String novoFormulario(Model model) {
         model.addAttribute("produto", new Produto());
-        return "produtos/formulario"; // Retorna o HTML de cadastro
+        return "produtos/formulario"; 
     }
 
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Produto produto) {
         repository.save(produto);
         return "redirect:/produtos";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable Long id, Model model) {
+        Produto produto = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("ID de produto inválido: " + id));
+        
+        model.addAttribute("produto", produto);
+        
+        return "produtos/formulario"; 
     }
 
     @GetMapping("/deletar/{id}")
