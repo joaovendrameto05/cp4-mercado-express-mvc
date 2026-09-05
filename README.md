@@ -255,8 +255,8 @@ public String deletar(@PathVariable Long id) {
 
 | Campo | Valor |
 |:---|:---|
-| **URL de Produção** | [Inserir link do deploy aqui] |
-| **Plataforma** | [Inserir plataforma — ex: Render, Fly.io, Railway] |
+| **URL de Produção** | [(https://cp4-mercado-express-mvc.onrender.com)] |
+| **Plataforma** | [Render] |
 
 <img width="1912" height="1032" alt="deploy" src="https://github.com/user-attachments/assets/62df933b-69d8-45c9-bd57-a20d40530cf2" >
 
